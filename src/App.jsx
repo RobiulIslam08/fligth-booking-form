@@ -5,6 +5,11 @@ import { GiHouse, GiJourney } from "react-icons/gi";
 import { RiVisaFill } from "react-icons/ri";
 import { MdLocationOn } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+import { ImAirplane } from "react-icons/im";
+import { BiSolidPlaneAlt } from "react-icons/bi";
 // CustomTabPanel Component
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -37,6 +42,7 @@ function a11yProps(index) {
 // FlightBookingForm Component
 const FlightBookingForm = () => {
   const [tabValue, setTabValue] = useState(0);
+  const [startDate, setStartDate] = useState(new Date());
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
@@ -44,7 +50,7 @@ const FlightBookingForm = () => {
 
   return (
     <div
-      className="p-[3px] rounded-lg mt-5 max-w-[90%] mx-auto"
+      className="p-[3px] rounded-lg mt-5 max-w-[85%] mx-auto"
       style={{
         background: 'url("https://i.ibb.co/X4wYGp5/pexels-fotios-photos-1107717.jpg")',
         backgroundSize: 'cover',
@@ -171,22 +177,53 @@ const FlightBookingForm = () => {
                   </div>
                   {/* date */}
                   <div className="flex mt-2 items-center justify-center">
-                   
+                  
                     <div className="p-1 bg-[#32d095]">
                     <SlCalender className="text-white  text-2xl" />
                     </div>
                     
                     <div>
-                      <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
+                      {/* <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" /> */}
+                      <DatePicker selected={startDate} className="bg-[#d7e7f4] p-1  border-none outline-none" onChange={(date) => setStartDate(date)} />
+
                     </div>
                   </div>
                   </div>
                 </div>
-                <div className="hidden md:block border">plan</div>
+
+                {/* Plane */}
+                <div className="hidden md:block border">
+                <ImAirplane className="text-5xl text-[#32d095]" />
+                <BiSolidPlaneAlt className="text-5xl  border-[#32d095]" />
+                </div>
                 <div className="border flex-1">
                 <div className="text-center">
                   <p>To</p>
                   <h1 className="text-[#32d095] text-lg md:text-4xl">DXC</h1>
+                     {/* input */}
+                     <div className="flex items-center mt-7 justify-center">
+                   
+                   <div className="p-1 bg-[#32d095]">
+                   <MdLocationOn className="text-white  text-2xl" />
+                   </div>
+                   
+                   <div>
+                     <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
+                   </div>
+                 </div>
+                 {/* date */}
+                 <div className="flex mt-2 items-center justify-center">
+                 
+                   <div className="p-1 bg-[#32d095]">
+                   <SlCalender className="text-white  text-2xl" />
+                   </div>
+                   
+                   <div>
+                     {/* <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" /> */}
+                     <DatePicker selected={startDate} className="bg-[#d7e7f4] p-1  border-none outline-none" onChange={(date) => setStartDate(date)} />
+
+                   </div>
+                 </div>
                   </div>
                 </div>
               </div>
