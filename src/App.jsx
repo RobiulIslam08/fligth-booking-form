@@ -119,7 +119,9 @@
 // export default FlightBookingForm;
 import { Button } from "@mui/material";
 import React, { useState } from "react";
-
+import { PiAirplaneTiltFill } from "react-icons/pi"
+import { GiHouse, GiJourney } from "react-icons/gi";
+import { RiVisaFill } from "react-icons/ri";
 // CustomTabPanel Component
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -165,41 +167,57 @@ const FlightBookingForm = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'white',
-       
+
       }}
     >
       {/* Tabs Section */}
       <div className="w-2/3 mx-auto rounded-full mb-4 bg-white">
-        <div className="  mb-4">
-          <div className="flex justify-between">
-          <Button
-  className={`w-full m-10 py-2  ${tabValue === 0 ? "!bg-[#32d095] border-b-2 border-blue-500 !text-white" : "!text-[#32d095]"}`}
-  onClick={() => handleTabChange(null, 0)}
-  {...a11yProps(0)}
->
-  FLIGHT
-</Button>
-<Button
-  className={`w-full m-10 py-2 ${tabValue === 1 ? "!bg-[#32d095] border-b-2 border-blue-500 !text-white" : "!text-[#32d095]"}`}
-  onClick={() => handleTabChange(null, 1)}
-  {...a11yProps(1)}
->
-  HOTEL
-</Button>
-<Button
-  className={`w-full m-10 py-2 ${tabValue === 2 ? "!bg-[#32d095] border-b-2 border-blue-500 !text-white" : "!text-[#32d095]"}`}
-  onClick={() => handleTabChange(null, 2)}
-  {...a11yProps(2)}
->
-  TOUR
-</Button>
-<Button
-  className={`w-full m-10 py-2 ${tabValue === 3 ? "!bg-[#32d095] border-b-2 border-blue-500 !text-white" : "!text-[#32d095]"}`}
-  onClick={() => handleTabChange(null, 3)}
-  {...a11yProps(3)}
->
-  VISA
-</Button>
+        <div className="mt-7 md:mt-10 md:mb-4 mb-3">
+          <div className="flex justify-between px-2 py-1">
+            <Button size="small"
+             sx={{ borderRadius: '1.5rem' }} 
+              className={`w-full m-10 py-2 rounded-3xl ${tabValue === 0 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
+              onClick={() => handleTabChange(null, 0)}
+              {...a11yProps(0)}
+            >
+             <div className="flex justify-center items-center gap-2">
+             < PiAirplaneTiltFill className="text-lg" ></PiAirplaneTiltFill>
+             <p>FLIGHT</p>
+             </div>
+            </Button>
+            <Button  size="small"
+             sx={{ borderRadius: '1.5rem' }} 
+              className={`w-full rounded-3xl  m-10 py-2 ${tabValue === 1 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
+              onClick={() => handleTabChange(null, 1)}
+              {...a11yProps(1)}
+            >
+              <div className="flex justify-center items-center gap-2">
+             <GiHouse className="text-lg" ></GiHouse>
+             <p>HOTEL</p>
+             </div>
+            </Button>
+            <Button size="small"
+             sx={{ borderRadius: '1.5rem' }} 
+              className={`w-full rounded-3xl  m-10 py-2 ${tabValue === 2 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
+              onClick={() => handleTabChange(null, 2)}
+              {...a11yProps(2)}
+            >
+              <div className="flex justify-center items-center gap-2">
+              <GiJourney className="text-lg" />
+             <p>TOUR</p>
+             </div>
+            </Button>
+            <Button size="small"
+             sx={{ borderRadius: '1.5rem' }} 
+              className={`w-full rounded-3xl m-10  py-2 ${tabValue === 3 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
+              onClick={() => handleTabChange(null, 3)}
+              {...a11yProps(3)}
+            >
+             <div className="flex justify-center items-center gap-2">
+             <RiVisaFill className="text-lg" />
+             <p>VISA</p>
+             </div>
+            </Button>
           </div>
         </div>
       </div>
