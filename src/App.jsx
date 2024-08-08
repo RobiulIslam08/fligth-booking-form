@@ -1,127 +1,10 @@
-// import React, { useState } from "react";
-// import { Container, Paper, Box, Tabs, Tab, Typography, TextField, Select, MenuItem, Button } from "@mui/material";
-// import PropTypes from "prop-types";
-
-// // CustomTabPanel Component
-// function CustomTabPanel(props) {
-//   const { children, value, index, ...other } = props;
-
-//   return (
-//     <div
-//       role="tabpanel"
-//       hidden={value !== index}
-//       id={`simple-tabpanel-${index}`}
-//       aria-labelledby={`simple-tab-${index}`}
-//       {...other}
-//     >
-//       {value === index && (
-//         <Box sx={{ p: 3 }}>
-//           {children}
-//         </Box>
-//       )}
-//     </div>
-//   );
-// }
-
-// CustomTabPanel.propTypes = {
-//   children: PropTypes.node,
-//   index: PropTypes.number.isRequired,
-//   value: PropTypes.number.isRequired,
-// };
-
-// // a11yProps Function
-// function a11yProps(index) {
-//   return {
-//     id: `simple-tab-${index}`,
-//     'aria-controls': `simple-tabpanel-${index}`,
-//   };
-// }
-
-// // FlightBookingForm Component
-// const FlightBookingForm = () => {
-//   const [tabValue, setTabValue] = useState(0);
-
-//   const handleTabChange = (event, newValue) => {
-//     setTabValue(newValue);
-//   };
-
-//   return (
-//     <Container
-//       style={{
-//         padding: '20px',
-//         marginTop: '20px',
-//         background: 'url("https://i.ibb.co/X4wYGp5/pexels-fotios-photos-1107717.jpg")',
-//         backgroundSize: 'cover',
-//         backgroundPosition: 'center',
-//         color: 'white'
-//       }}
-//     >
-//       {/* Tabs Section */}
-//       <Box className="bg-white" sx={{ width: '100%', mb: 2 }}>
-//         <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 2 }}>
-//           <Tabs
-//             value={tabValue}
-//             onChange={handleTabChange}
-//             aria-label="basic tabs example"
-//             variant="fullWidth"
-//           >
-//             <Tab label="FLIGHT" {...a11yProps(0)} />
-//             <Tab label="HOTEL" {...a11yProps(1)} />
-//             <Tab label="TOUR" {...a11yProps(2)} />
-//             <Tab label="VISA" {...a11yProps(3)} />
-//           </Tabs>
-//         </Box>
-//       </Box>
-
-//       {/* Content Section */}
-//       <Paper
-//         elevation={3}
-//         style={{
-//           padding: '20px',
-//           backgroundColor: 'white',
-//           color: 'black',
-//           borderRadius: '10px'
-
-//         }}
-//       >
-//         <CustomTabPanel value={tabValue} index={0}>
-//           <Typography variant="h6">FLIGHT BOOKING</Typography>
-//           <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
-//             <TextField label="FROM" variant="outlined" fullWidth />
-//             <TextField label="TO" variant="outlined" fullWidth />
-//           </Box>
-//           <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
-//             <TextField label="DATE" variant="outlined" fullWidth />
-//             <Select variant="outlined" fullWidth>
-//               <MenuItem value="economy">Economy</MenuItem>
-//               <MenuItem value="business">Business</MenuItem>
-//             </Select>
-//           </Box>
-//           <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>SEARCH FOR FLIGHT</Button>
-//         </CustomTabPanel>
-//         <CustomTabPanel value={tabValue} index={1}>
-//           <Typography variant="h6">HOTEL BOOKING</Typography>
-//           {/* Hotel Booking Form */}
-//         </CustomTabPanel>
-//         <CustomTabPanel value={tabValue} index={2}>
-//           <Typography variant="h6">TOUR BOOKING</Typography>
-//           {/* Tour Booking Form */}
-//         </CustomTabPanel>
-//         <CustomTabPanel value={tabValue} index={3}>
-//           <Typography variant="h6">VISA APPLICATION</Typography>
-//           {/* Visa Application Form */}
-//         </CustomTabPanel>
-//       </Paper>
-//     </Container>
-//   );
-// };
-
-// export default FlightBookingForm;
-import { Button } from "@mui/material";
+import { Button, ButtonGroup, Divider, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
 import React, { useState } from "react";
 import { PiAirplaneTiltFill } from "react-icons/pi"
 import { GiHouse, GiJourney } from "react-icons/gi";
 import { RiVisaFill } from "react-icons/ri";
+import { MdLocationOn } from "react-icons/md";
+import { SlCalender } from "react-icons/sl";
 // CustomTabPanel Component
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -161,95 +44,169 @@ const FlightBookingForm = () => {
 
   return (
     <div
-      className="p-5  rounded-lg mt-5 max-w-[90%] mx-auto"
+      className="p-[3px] rounded-lg mt-5 max-w-[90%] mx-auto"
       style={{
         background: 'url("https://i.ibb.co/X4wYGp5/pexels-fotios-photos-1107717.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'white',
-
       }}
     >
       {/* Tabs Section */}
-      <div className="w-2/3 mx-auto rounded-full mb-4 bg-white">
+      <div className="lg:w-2/3 w-full  mx-auto rounded-full mb-4 bg-white">
         <div className="mt-7 md:mt-10 md:mb-4 mb-3">
           <div className="flex justify-between px-2 py-1">
-            <Button size="small"
-             sx={{ borderRadius: '1.5rem' }} 
+            <Button
+              size="small"
+              sx={{ borderRadius: '1.5rem' }} 
               className={`w-full m-10 py-2 rounded-3xl ${tabValue === 0 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 0)}
               {...a11yProps(0)}
             >
-             <div className="flex justify-center items-center gap-2">
-             < PiAirplaneTiltFill className="text-lg" ></PiAirplaneTiltFill>
-             <p>FLIGHT</p>
-             </div>
+              <div className="flex justify-center items-center gap-2">
+                <PiAirplaneTiltFill className="text-lg" />
+                <p>FLIGHT</p>
+              </div>
             </Button>
-            <Button  size="small"
-             sx={{ borderRadius: '1.5rem' }} 
-              className={`w-full rounded-3xl  m-10 py-2 ${tabValue === 1 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
+            <Button
+              size="small"
+              sx={{ borderRadius: '1.5rem' }} 
+              className={`w-full rounded-3xl m-10 py-2 ${tabValue === 1 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 1)}
               {...a11yProps(1)}
             >
               <div className="flex justify-center items-center gap-2">
-             <GiHouse className="text-lg" ></GiHouse>
-             <p>HOTEL</p>
-             </div>
+                <GiHouse className="text-lg" />
+                <p>HOTEL</p>
+              </div>
             </Button>
-            <Button size="small"
-             sx={{ borderRadius: '1.5rem' }} 
-              className={`w-full rounded-3xl  m-10 py-2 ${tabValue === 2 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
+            <Button
+              size="small"
+              sx={{ borderRadius: '1.5rem' }} 
+              className={`w-full rounded-3xl m-10 py-2 ${tabValue === 2 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 2)}
               {...a11yProps(2)}
             >
               <div className="flex justify-center items-center gap-2">
-              <GiJourney className="text-lg" />
-             <p>TOUR</p>
-             </div>
+                <GiJourney className="text-lg" />
+                <p>TOUR</p>
+              </div>
             </Button>
-            <Button size="small"
-             sx={{ borderRadius: '1.5rem' }} 
-              className={`w-full rounded-3xl m-10  py-2 ${tabValue === 3 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
+            <Button
+              size="small"
+              sx={{ borderRadius: '1.5rem' }} 
+              className={`w-full rounded-3xl m-10 py-2 ${tabValue === 3 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 3)}
               {...a11yProps(3)}
             >
-             <div className="flex justify-center items-center gap-2">
-             <RiVisaFill className="text-lg" />
-             <p>VISA</p>
-             </div>
+              <div className="flex justify-center items-center gap-2">
+                <RiVisaFill className="text-lg" />
+                <p>VISA</p>
+              </div>
             </Button>
           </div>
         </div>
       </div>
 
       {/* Content Section */}
-      <div className="p-5 bg-white text-black rounded-lg shadow-lg">
+      <div className="text-black rounded-lg shadow-lg">
         <CustomTabPanel value={tabValue} index={0}>
-          <h6 className="text-lg font-semibold">FLIGHT BOOKING</h6>
-          <div className="flex gap-4 mt-4">
-            <input type="text" placeholder="FROM" className="w-full px-4 py-2 border rounded-lg" />
-            <input type="text" placeholder="TO" className="w-full px-4 py-2 border rounded-lg" />
+          <div className="md:flex">
+            <div className="flex-1 p-4 rounded-lg bg-white">
+
+              {/* radio button */}
+              <FormControl className="text-[#32d095]">
+                <RadioGroup
+                  row
+                  aria-labelledby="flight-type-radio-group"
+                  name="flight-type-radio-group"
+                >
+                  <FormControlLabel
+                    value="round-way"
+                    control={<Radio sx={{
+                      '&.Mui-checked': {
+                        color: '#32d095',
+                      },
+                    }} />}
+                    label="ROUND-WAY"
+                  />
+                  <FormControlLabel
+                    value="one-way"
+                    control={<Radio sx={{
+                      '&.Mui-checked': {
+                        color: '#32d095',
+                      },
+                    }} />}
+                    label="ONE-WAY"
+                  />
+                  <FormControlLabel
+                    value="multi-city"
+                    control={<Radio sx={{
+                      '&.Mui-checked': {
+                        color: '#32d095',
+                      },
+                    }} />}
+                    label="MULTI-CITY"
+                  />
+                </RadioGroup>
+              </FormControl>
+
+              {/* from, plan, to */}
+              <div className="md:flex mt-2 justify-between">
+                <div className="border flex-1">
+                  <div className="text-center">
+                  <p>From</p>
+                  <h1 className="text-[#32d095] text-lg md:text-4xl">DXB</h1>
+                  
+                  {/* input */}
+                  <div className="flex items-center mt-7 justify-center">
+                   
+                    <div className="p-1 bg-[#32d095]">
+                    <MdLocationOn className="text-white  text-2xl" />
+                    </div>
+                    
+                    <div>
+                      <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
+                    </div>
+                  </div>
+                  {/* date */}
+                  <div className="flex mt-2 items-center justify-center">
+                   
+                    <div className="p-1 bg-[#32d095]">
+                    <SlCalender className="text-white  text-2xl" />
+                    </div>
+                    
+                    <div>
+                      <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div className="hidden md:block border">plan</div>
+                <div className="border flex-1">
+                <div className="text-center">
+                  <p>To</p>
+                  <h1 className="text-[#32d095] text-lg md:text-4xl">DXC</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <Divider orientation="vertical" flexItem sx={{ height: 'auto', mx: 0, borderColor: 'grey.400', borderRadius: "20px" }} />
+            <div className="w-1/4 p-4 rounded-lg bg-white">
+              India
+            </div>
           </div>
-          <div className="flex gap-4 mt-4">
-            <input type="text" placeholder="DATE" className="w-full px-4 py-2 border rounded-lg" />
-            <select className="w-full px-4 py-2 border rounded-lg">
-              <option value="economy">Economy</option>
-              <option value="business">Business</option>
-            </select>
-          </div>
-          <button className="w-full mt-4 py-2 bg-blue-600 text-white font-semibold rounded-lg">
-            SEARCH FOR FLIGHT
-          </button>
         </CustomTabPanel>
-        <CustomTabPanel value={tabValue} index={1}>
+        <CustomTabPanel className="bg-white rounded-lg" value={tabValue} index={1}>
           <h6 className="text-lg font-semibold">HOTEL BOOKING</h6>
           {/* Hotel Booking Form */}
         </CustomTabPanel>
-        <CustomTabPanel value={tabValue} index={2}>
+        <CustomTabPanel className="bg-white rounded-lg" value={tabValue} index={2}>
           <h6 className="text-lg font-semibold">TOUR BOOKING</h6>
           {/* Tour Booking Form */}
         </CustomTabPanel>
-        <CustomTabPanel value={tabValue} index={3}>
+        <CustomTabPanel className="bg-white rounded-lg" value={tabValue} index={3}>
           <h6 className="text-lg font-semibold">VISA APPLICATION</h6>
           {/* Visa Application Form */}
         </CustomTabPanel>
