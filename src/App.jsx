@@ -23,7 +23,7 @@ function CustomTabPanel(props) {
       {...other}
     >
       {value === index && (
-        <div className="p-6">
+        <div className="pb-8 pr-6 pl-6">
           {children}
         </div>
       )}
@@ -65,53 +65,53 @@ const FlightBookingForm = () => {
       }}
     >
       {/* Tabs Section */}
-      <div className="lg:w-2/3 w-full  mx-auto rounded-full mb-4 bg-white">
+      <div className="lg:w-[50%] w-[85%] mx-auto rounded-full  bg-white">
         <div className="mt-7 md:mt-10 md:mb-4 mb-3">
           <div className="flex justify-between px-2 py-1">
             <Button
               size="small"
-              sx={{ borderRadius: '1.5rem' }}
+              sx={{ borderRadius: '1.5rem', width: '400px' }}
               className={`w-full m-10 py-2 rounded-3xl ${tabValue === 0 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 0)}
               {...a11yProps(0)}
             >
-              <div className="flex justify-center items-center gap-2">
-                <PiAirplaneTiltFill className="text-lg " />
+              <div className="flex flex-col lg:flex-row justify-center  items-center lg:gap-2">
+                <PiAirplaneTiltFill className="text-lg  " />
                 <p>FLIGHT</p>
               </div>
             </Button>
             <Button
               size="small"
-              sx={{ borderRadius: '1.5rem' }}
+              sx={{ borderRadius: '1.5rem', width: '400px' }}
               className={`w-full rounded-3xl m-10 py-2 ${tabValue === 1 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 1)}
               {...a11yProps(1)}
             >
-              <div className="flex justify-center items-center gap-2">
+              <div className="flex flex-col lg:flex-row justify-center items-center gap-2">
                 <GiHouse className="text-lg" />
                 <p>HOTEL</p>
               </div>
             </Button>
             <Button
               size="small"
-              sx={{ borderRadius: '1.5rem' }}
+              sx={{ borderRadius: '1.5rem', width: '400px' }}
               className={`w-full rounded-3xl m-10 py-2 ${tabValue === 2 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 2)}
               {...a11yProps(2)}
             >
-              <div className="flex justify-center items-center gap-2">
+              <div className="flex flex-col lg:flex-row justify-center items-center gap-2">
                 <GiJourney className="text-lg" />
                 <p>TOUR</p>
               </div>
             </Button>
             <Button
               size="small"
-              sx={{ borderRadius: '1.5rem' }}
+              sx={{ borderRadius: '1.5rem', width: '400px' }}
               className={`w-full rounded-3xl m-10 py-2 ${tabValue === 3 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 3)}
               {...a11yProps(3)}
             >
-              <div className="flex justify-center items-center gap-2">
+              <div className="flex flex-col lg:flex-row justify-center items-center gap-2">
                 <RiVisaFill className="text-lg" />
                 <p>VISA</p>
               </div>
@@ -127,6 +127,7 @@ const FlightBookingForm = () => {
             <div className="flex-1 p-4 rounded-lg bg-white">
 
               {/* radio button */}
+
               <FormControl className="text-[#32d095]">
                 <RadioGroup
                   row
@@ -135,40 +136,69 @@ const FlightBookingForm = () => {
                 >
                   <FormControlLabel
                     value="round-way"
-                    control={<Radio sx={{
-                      '&.Mui-checked': {
-                        color: '#32d095',
-                      },
-                    }} />}
-                    label="ROUND-WAY"
+                    control={
+                      <Radio
+                        size="small" // Makes the radio button smaller
+                        sx={{
+                          '&.Mui-checked': {
+                            color: '#32d095',
+                          },
+                          // Custom size for the radio button
+                          '& svg': {
+                            width: '18px', // Adjust the size of the radio button
+                            height: '18px',
+                          },
+                        }}
+                      />
+                    }
+                    label={<span style={{ fontSize: '0.875rem' }}>ROUND-WAY</span>} // Smaller label text
                   />
                   <FormControlLabel
                     value="one-way"
-                    control={<Radio sx={{
-                      '&.Mui-checked': {
-                        color: '#32d095',
-                      },
-                    }} />}
-                    label="ONE-WAY"
+                    control={
+                      <Radio
+                        size="small"
+                        sx={{
+                          '&.Mui-checked': {
+                            color: '#32d095',
+                          },
+                          '& svg': {
+                            width: '18px',
+                            height: '18px',
+                          },
+                        }}
+                      />
+                    }
+                    label={<span style={{ fontSize: '0.875rem' }}>ONE-WAY</span>} // Smaller label text
                   />
                   <FormControlLabel
                     value="multi-city"
-                    control={<Radio sx={{
-                      '&.Mui-checked': {
-                        color: '#32d095',
-                      },
-                    }} />}
-                    label="MULTI-CITY"
+                    control={
+                      <Radio
+                        size="small"
+                        sx={{
+                          '&.Mui-checked': {
+                            color: '#32d095',
+                          },
+                          '& svg': {
+                            width: '18px',
+                            height: '18px',
+                          },
+                        }}
+                      />
+                    }
+                    label={<span style={{ fontSize: '0.875rem' }}>MULTI-CITY</span>} // Smaller label text
                   />
                 </RadioGroup>
               </FormControl>
+
 
               {/* from, plan, to */}
               <div className="md:flex mt-2 justify-between">
                 <div className=" flex-1 ">
                   <div className="text-center">
-                    <p>FROM</p>
-                    <h1 className="text-[#32d095] text-lg md:text-5xl">DXB</h1>
+                    <p className="text-[#525371] text-xs md:text-base">FROM</p>
+                    <h1 className="text-[#32d095] text-xl md:text-[40px] font-medium mt-3">DXB</h1>
 
                     {/* input */}
                     <div className="flex items-center mt-7 w-full justify-center">
@@ -204,8 +234,8 @@ const FlightBookingForm = () => {
                 </div>
                 <div className=" flex-1 mt-10 lg:mt-0">
                   <div className="text-center">
-                    <p>TO</p>
-                    <h1 className="text-[#32d095] text-lg md:text-5xl">DXC</h1>
+                    <p className="text-[#525371] text-xs md:text-base">TO</p>
+                    <h1 className="text-[#32d095] text-xl md:text-[40px] font-medium mt-3">DXC</h1>
                     {/* input */}
                     <div className="flex w-full items-center mt-7 justify-center">
 
@@ -242,7 +272,7 @@ const FlightBookingForm = () => {
                 
               </ButtonGroup> */}
               <div className="flex justify-between">
-              <FormControl variant="standard" className="m-2">
+                <FormControl variant="standard" className="m-2">
                   <Select
                     value={adult}
                     onChange={(e) => setAdult(e.target.value)}
@@ -358,13 +388,13 @@ const FlightBookingForm = () => {
 
               {/*Search Button  */}
               <div className="lg:mt-24 mt-16">
-              <Button
-              size="small"
-            
-              className={`w-full mb-2 py-2  ${tabValue === 0 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
-              onClick={() => handleTabChange(null, 0)}
-              {...a11yProps(0)}
-            >Search For Flight</Button>
+                <Button
+                  size="small"
+
+                  className={`w-full mb-2 py-2  ${tabValue === 0 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
+                  onClick={() => handleTabChange(null, 0)}
+                  {...a11yProps(0)}
+                >Search For Flight</Button>
               </div>
             </div>
           </div>
