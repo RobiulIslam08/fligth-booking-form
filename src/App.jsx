@@ -56,7 +56,7 @@ const FlightBookingForm = () => {
 
   return (
     <div
-      className="p-[3px] rounded-lg mt-5 max-w-[85%] mx-auto"
+      className="p-[3px] rounded-lg my-10 max-w-[85%] mx-auto"
       style={{
         background: 'url("https://i.ibb.co/X4wYGp5/pexels-fotios-photos-1107717.jpg")',
         backgroundSize: 'cover',
@@ -76,7 +76,7 @@ const FlightBookingForm = () => {
               {...a11yProps(0)}
             >
               <div className="flex justify-center items-center gap-2">
-                <PiAirplaneTiltFill className="text-lg" />
+                <PiAirplaneTiltFill className="text-lg " />
                 <p>FLIGHT</p>
               </div>
             </Button>
@@ -165,32 +165,32 @@ const FlightBookingForm = () => {
 
               {/* from, plan, to */}
               <div className="md:flex mt-2 justify-between">
-                <div className=" flex-1">
+                <div className=" flex-1 ">
                   <div className="text-center">
-                    <p>From</p>
-                    <h1 className="text-[#32d095] text-lg md:text-4xl">DXB</h1>
+                    <p>FROM</p>
+                    <h1 className="text-[#32d095] text-lg md:text-5xl">DXB</h1>
 
                     {/* input */}
-                    <div className="flex items-center mt-7 justify-center">
+                    <div className="flex items-center mt-7 w-full justify-center">
 
-                      <div className="p-1 bg-[#32d095]">
+                      <div className="px-2 py-1  rounded-l-md  bg-[#32d095]">
                         <MdLocationOn className="text-white  text-2xl" />
                       </div>
 
-                      <div>
-                        <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
+                      <div >
+                        <input className="bg-[#d7e7f4] p-1  rounded-r-md border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
                       </div>
                     </div>
                     {/* date */}
                     <div className="flex mt-2 items-center justify-center">
 
-                      <div className="p-1 bg-[#32d095]">
+                      <div className="px-2 py-1  rounded-l-md  bg-[#32d095]">
                         <SlCalender className="text-white  text-2xl" />
                       </div>
 
                       <div>
                         {/* <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" /> */}
-                        <DatePicker selected={startDate} className="bg-[#d7e7f4] p-1  border-none outline-none" onChange={(date) => setStartDate(date)} />
+                        <DatePicker selected={startDate} className="bg-[#d7e7f4] p-1 rounded-r-md  border-none outline-none" onChange={(date) => setStartDate(date)} />
 
                       </div>
                     </div>
@@ -198,35 +198,35 @@ const FlightBookingForm = () => {
                 </div>
 
                 {/* Plane */}
-                <div className="hidden mt-10 md:block ">
+                <div className="hidden mt-10 md:block  px-10">
                   <ImAirplane className="text-5xl text-[#32d095]" />
                   <BiSolidPlaneAlt className="text-6xl text-gray-500  outline-green-500" />
                 </div>
-                <div className=" flex-1">
+                <div className=" flex-1 mt-10 lg:mt-0">
                   <div className="text-center">
-                    <p>To</p>
-                    <h1 className="text-[#32d095] text-lg md:text-4xl">DXC</h1>
+                    <p>TO</p>
+                    <h1 className="text-[#32d095] text-lg md:text-5xl">DXC</h1>
                     {/* input */}
-                    <div className="flex items-center mt-7 justify-center">
+                    <div className="flex w-full items-center mt-7 justify-center">
 
-                      <div className="p-1 bg-[#32d095]">
+                      <div className="px-2 py-1  rounded-l-md  bg-[#32d095]">
                         <MdLocationOn className="text-white  text-2xl" />
                       </div>
 
                       <div>
-                        <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
+                        <input className="bg-[#d7e7f4] p-1 rounded-r-md border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
                       </div>
                     </div>
                     {/* date */}
                     <div className="flex mt-2 items-center justify-center">
 
-                      <div className="p-1 bg-[#32d095]">
+                      <div className="px-2 py-1  rounded-l-md  bg-[#32d095]">
                         <SlCalender className="text-white  text-2xl" />
                       </div>
 
                       <div>
                         {/* <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" /> */}
-                        <DatePicker selected={endDate} className="bg-[#d7e7f4] p-1  border-none outline-none" onChange={(date) => setEndDate(date)} />
+                        <DatePicker selected={endDate} className="bg-[#d7e7f4] p-1 rounded-r-md  border-none outline-none" onChange={(date) => setEndDate(date)} />
 
                       </div>
                     </div>
