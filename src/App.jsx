@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Divider, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
+import { Button, ButtonGroup, Divider, FormControl, FormControlLabel, FormLabel, MenuItem, Radio, RadioGroup, Select } from "@mui/material";
 import React, { useState } from "react";
 import { PiAirplaneTiltFill } from "react-icons/pi"
 import { GiHouse, GiJourney } from "react-icons/gi";
@@ -43,10 +43,16 @@ function a11yProps(index) {
 const FlightBookingForm = () => {
   const [tabValue, setTabValue] = useState(0);
   const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [adult, setAdult] = useState(1);
+  const [child, setChild] = useState(0);
+  const [infant, setInfant] = useState(0);
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
   };
+
+  
 
   return (
     <div
@@ -159,7 +165,7 @@ const FlightBookingForm = () => {
 
               {/* from, plan, to */}
               <div className="md:flex mt-2 justify-between">
-                <div className="border flex-1">
+                <div className=" flex-1">
                   <div className="text-center">
                   <p>From</p>
                   <h1 className="text-[#32d095] text-lg md:text-4xl">DXB</h1>
@@ -192,11 +198,11 @@ const FlightBookingForm = () => {
                 </div>
 
                 {/* Plane */}
-                <div className="hidden md:block border">
+                <div className="hidden mt-10 md:block ">
                 <ImAirplane className="text-5xl text-[#32d095]" />
-                <BiSolidPlaneAlt className="text-5xl  border-[#32d095]" />
+                <BiSolidPlaneAlt className="text-6xl text-gray-500  outline-green-500" />
                 </div>
-                <div className="border flex-1">
+                <div className=" flex-1">
                 <div className="text-center">
                   <p>To</p>
                   <h1 className="text-[#32d095] text-lg md:text-4xl">DXC</h1>
@@ -220,7 +226,7 @@ const FlightBookingForm = () => {
                    
                    <div>
                      {/* <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" /> */}
-                     <DatePicker selected={startDate} className="bg-[#d7e7f4] p-1  border-none outline-none" onChange={(date) => setStartDate(date)} />
+                     <DatePicker selected={endDate} className="bg-[#d7e7f4] p-1  border-none outline-none" onChange={(date) => setEndDate(date)} />
 
                    </div>
                  </div>
@@ -230,8 +236,89 @@ const FlightBookingForm = () => {
             </div>
 
             <Divider orientation="vertical" flexItem sx={{ height: 'auto', mx: 0, borderColor: 'grey.400', borderRadius: "20px" }} />
-            <div className="w-1/4 p-4 rounded-lg bg-white">
-              India
+            <div className="lg:w-[30%] w-full p-4 rounded-lg bg-white">
+              {/* select */}
+              <ButtonGroup aria-label="number of adults, children, and infants" className="gap-2">
+          <FormControl variant="standard" className="m-2">
+            <Select
+              value={adult}
+              onChange={(e) => setAdult(e.target.value)}
+              displayEmpty
+              inputProps={{
+                'aria-label': 'Adult',
+                style: { padding: '4px', fontSize: '14px' },
+              }}
+              sx={{
+                fontSize: '14px',
+                backgroundColor: '#d7e7f4',
+                padding: '2px 8px',
+                borderRadius: '4px',
+                '&:before': { borderBottom: 'none' },
+                '&:after': { borderBottom: 'none' },
+                '& .MuiSelect-select:focus': {
+                  backgroundColor: '#d7e7f4',
+                },
+              }}
+            >
+              <MenuItem value={1}>1 Adult</MenuItem>
+              <MenuItem value={2}>2 Adults</MenuItem>
+              <MenuItem value={3}>3 Adults</MenuItem>
+              <MenuItem value={4}>4 Adults</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl variant="standard" className="m-2">
+            <Select
+              value={child}
+              onChange={(e) => setChild(e.target.value)}
+              displayEmpty
+              inputProps={{
+                'aria-label': 'Child',
+                style: { padding: '4px', fontSize: '14px' },
+              }}
+              sx={{
+                fontSize: '14px',
+                backgroundColor: '#d7e7f4',
+                padding: '2px 8px',
+                borderRadius: '4px',
+                '&:before': { borderBottom: 'none' },
+                '&:after': { borderBottom: 'none' },
+                '& .MuiSelect-select:focus': {
+                  backgroundColor: '#d7e7f4',
+                },
+              }}
+            >
+              <MenuItem value={0}>0 Child</MenuItem>
+              <MenuItem value={1}>1 Child</MenuItem>
+              <MenuItem value={2}>2 Children</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl variant="standard" className="m-2">
+            <Select
+              value={infant}
+              onChange={(e) => setInfant(e.target.value)}
+              displayEmpty
+              inputProps={{
+                'aria-label': 'Infant',
+                style: { padding: '4px', fontSize: '14px' },
+              }}
+              sx={{
+                fontSize: '14px',
+                backgroundColor: '#d7e7f4',
+                padding: '2px 8px',
+                borderRadius: '4px',
+                '&:before': { borderBottom: 'none' },
+                '&:after': { borderBottom: 'none' },
+                '& .MuiSelect-select:focus': {
+                  backgroundColor: '#d7e7f4',
+                },
+              }}
+            >
+              <MenuItem value={0}>0 Infant</MenuItem>
+              <MenuItem value={1}>1 Infant</MenuItem>
+              <MenuItem value={2}>2 Infants</MenuItem>
+            </Select>
+          </FormControl>
+        </ButtonGroup>
             </div>
           </div>
         </CustomTabPanel>
