@@ -10,6 +10,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ImAirplane } from "react-icons/im";
 import { BiSolidPlaneAlt } from "react-icons/bi";
+import { FaPlane } from "react-icons/fa";
+import { CiPlane } from "react-icons/ci";
+import { IoAirplane, IoAirplaneOutline } from "react-icons/io5";
 // CustomTabPanel Component
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -124,7 +127,7 @@ const FlightBookingForm = () => {
       <div className="text-black rounded-lg shadow-lg">
         <CustomTabPanel value={tabValue} index={0}>
           <div className="md:flex">
-            <div className="flex-1 p-4 rounded-lg bg-white">
+            <div className="flex-1  p-4 rounded-lg bg-white">
 
               {/* radio button */}
 
@@ -203,12 +206,12 @@ const FlightBookingForm = () => {
                     {/* input */}
                     <div className="flex items-center mt-7 w-full justify-center">
 
-                      <div className="px-2 py-1  rounded-l-md  bg-[#32d095]">
+                      <div className="px-2 py-1   rounded-l-md  bg-[#32d095]">
                         <MdLocationOn className="text-white  text-2xl" />
                       </div>
 
-                      <div >
-                        <input className="bg-[#d7e7f4] p-1  rounded-r-md border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
+                      <div className="flex-1">
+                        <input className="bg-[#d7e7f4] p-1 w-full rounded-r-md border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
                       </div>
                     </div>
                     {/* date */}
@@ -220,7 +223,7 @@ const FlightBookingForm = () => {
 
                       <div>
                         {/* <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" /> */}
-                        <DatePicker selected={startDate} className="bg-[#d7e7f4] p-1 rounded-r-md  border-none outline-none" onChange={(date) => setStartDate(date)} />
+                        <DatePicker selected={startDate} className="bg-[#d7e7f4] text-[#525371] p-1 w-full px-10 rounded-r-md  border-none outline-none" onChange={(date) => setStartDate(date)} />
 
                       </div>
                     </div>
@@ -228,9 +231,11 @@ const FlightBookingForm = () => {
                 </div>
 
                 {/* Plane */}
-                <div className="hidden mt-10 md:block  px-10">
-                  <ImAirplane className="text-5xl text-[#32d095]" />
-                  <BiSolidPlaneAlt className="text-6xl text-gray-500  outline-green-500" />
+                <div className="hidden  md:block  px-10">
+                  <IoAirplane className="text-[90px] text-[#32d095]" />
+                  {/* <BiSolidPlaneAlt className="text-6xl text-gray-500  outline-green-500" /> */}
+                  <IoAirplaneOutline className="text-[90px] -mt-9 text-[#32d095] rotate-180" />
+
                 </div>
                 <div className=" flex-1 mt-10 lg:mt-0">
                   <div className="text-center">
@@ -243,8 +248,8 @@ const FlightBookingForm = () => {
                         <MdLocationOn className="text-white  text-2xl" />
                       </div>
 
-                      <div>
-                        <input className="bg-[#d7e7f4] p-1 rounded-r-md border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
+                      <div className="flex-1">
+                        <input className="bg-[#d7e7f4] p-1 w-full rounded-r-md border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
                       </div>
                     </div>
                     {/* date */}
@@ -256,7 +261,7 @@ const FlightBookingForm = () => {
 
                       <div>
                         {/* <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" /> */}
-                        <DatePicker selected={endDate} className="bg-[#d7e7f4] p-1 rounded-r-md  border-none outline-none" onChange={(date) => setEndDate(date)} />
+                        <DatePicker selected={endDate} className="bg-[#d7e7f4] text-[#525371] p-1 w-full px-10 rounded-r-md  border-none outline-none" onChange={(date) => setEndDate(date)} />
 
                       </div>
                     </div>
@@ -271,8 +276,8 @@ const FlightBookingForm = () => {
               {/* <ButtonGroup aria-label="number of adults, children, and infants" className="gap-2">
                 
               </ButtonGroup> */}
-              <div className="flex justify-between">
-                <FormControl variant="standard" className="m-2">
+              <div className="flex  justify-between">
+                {/* <FormControl variant="standard" className="m-2">
                   <Select
                     value={adult}
                     onChange={(e) => setAdult(e.target.value)}
@@ -283,6 +288,7 @@ const FlightBookingForm = () => {
                     }}
                     sx={{
                       fontSize: '14px',
+                      color: '#525371', // Text color set directly here
                       backgroundColor: '#d7e7f4',
                       padding: '2px 8px',
                       borderRadius: '4px',
@@ -293,12 +299,22 @@ const FlightBookingForm = () => {
                       },
                     }}
                   >
-                    <MenuItem value={1}>1 Adult</MenuItem>
-                    <MenuItem value={2}>2 Adults</MenuItem>
-                    <MenuItem value={3}>3 Adults</MenuItem>
-                    <MenuItem value={4}>4 Adults</MenuItem>
+                    <MenuItem sx={{ color: '#525371' }} value={1}>
+                      1 Adult
+                    </MenuItem>
+                    <MenuItem sx={{ color: '#525371' }} value={2}>
+                      2 Adults
+                    </MenuItem>
+                    <MenuItem sx={{ color: '#525371' }} value={3}>
+                      3 Adults
+                    </MenuItem>
+                    <MenuItem sx={{ color: '#525371' }} value={4}>
+                      4 Adults
+                    </MenuItem>
                   </Select>
                 </FormControl>
+
+
                 <FormControl variant="standard" className="m-2">
                   <Select
                     value={child}
@@ -310,6 +326,7 @@ const FlightBookingForm = () => {
                     }}
                     sx={{
                       fontSize: '14px',
+                      color: '#525371', // Text color for the Select component
                       backgroundColor: '#d7e7f4',
                       padding: '2px 8px',
                       borderRadius: '4px',
@@ -318,13 +335,17 @@ const FlightBookingForm = () => {
                       '& .MuiSelect-select:focus': {
                         backgroundColor: '#d7e7f4',
                       },
+                      '& .MuiSelect-select': {
+                        color: '#525371', // Ensure text color is applied
+                      },
                     }}
                   >
-                    <MenuItem value={0}>0 Child</MenuItem>
-                    <MenuItem value={1}>1 Child</MenuItem>
-                    <MenuItem value={2}>2 Children</MenuItem>
+                    <MenuItem sx={{ color: '#525371' }} value={0}>0 Child</MenuItem>
+                    <MenuItem sx={{ color: '#525371' }} value={1}>1 Child</MenuItem>
+                    <MenuItem sx={{ color: '#525371' }} value={2}>2 Children</MenuItem>
                   </Select>
                 </FormControl>
+
                 <FormControl variant="standard" className="m-2">
                   <Select
                     value={infant}
@@ -336,6 +357,7 @@ const FlightBookingForm = () => {
                     }}
                     sx={{
                       fontSize: '14px',
+                      color: '#525371', // Text color for the Select component
                       backgroundColor: '#d7e7f4',
                       padding: '2px 8px',
                       borderRadius: '4px',
@@ -344,18 +366,134 @@ const FlightBookingForm = () => {
                       '& .MuiSelect-select:focus': {
                         backgroundColor: '#d7e7f4',
                       },
+                      '& .MuiSelect-select': {
+                        color: '#525371', // Ensure text color is applied
+                      },
                     }}
                   >
-                    <MenuItem value={0}>0 Infant</MenuItem>
-                    <MenuItem value={1}>1 Infant</MenuItem>
-                    <MenuItem value={2}>2 Infants</MenuItem>
+                    <MenuItem sx={{ color: '#525371' }} value={0}>0 Infant</MenuItem>
+                    <MenuItem sx={{ color: '#525371' }} value={1}>1 Infant</MenuItem>
+                    <MenuItem sx={{ color: '#525371' }} value={2}>2 Infants</MenuItem>
                   </Select>
-                </FormControl>
+                </FormControl> */}
+                <FormControl variant="standard" className="m-2">
+  <Select
+    value={adult}
+    onChange={(e) => setAdult(e.target.value)}
+    displayEmpty
+    inputProps={{
+      'aria-label': 'Adult',
+      style: { padding: '4px', fontSize: '12px' }, // Smaller font size for input
+    }}
+    sx={{
+      fontSize: '12px', // Font size for the Select component
+      color: '#525371',
+      backgroundColor: '#d7e7f4',
+      padding: '2px 8px',
+      borderRadius: '4px',
+      '&:before': { borderBottom: 'none' },
+      '&:after': { borderBottom: 'none' },
+      '& .MuiSelect-select': {
+        color: '#525371', // Text color for the selected item
+      },
+      '& .MuiSelect-select:focus': {
+        backgroundColor: '#d7e7f4',
+      },
+    }}
+  >
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={1}>
+      1 Adult
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={2}>
+      2 Adults
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={3}>
+      3 Adults
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={4}>
+      4 Adults
+    </MenuItem>
+  </Select>
+</FormControl>
+
+<FormControl variant="standard" className="m-2">
+  <Select
+    value={child}
+    onChange={(e) => setChild(e.target.value)}
+    displayEmpty
+    inputProps={{
+      'aria-label': 'Child',
+      style: { padding: '4px', fontSize: '12px' }, // Smaller font size for input
+    }}
+    sx={{
+      fontSize: '12px', // Font size for the Select component
+      color: '#525371',
+      backgroundColor: '#d7e7f4',
+      padding: '2px 8px',
+      borderRadius: '4px',
+      '&:before': { borderBottom: 'none' },
+      '&:after': { borderBottom: 'none' },
+      '& .MuiSelect-select': {
+        color: '#525371', // Text color for the selected item
+      },
+      '& .MuiSelect-select:focus': {
+        backgroundColor: '#d7e7f4',
+      },
+    }}
+  >
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={0}>
+      0 Child
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={1}>
+      1 Child
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={2}>
+      2 Children
+    </MenuItem>
+  </Select>
+</FormControl>
+
+<FormControl variant="standard" className="m-2">
+  <Select
+    value={infant}
+    onChange={(e) => setInfant(e.target.value)}
+    displayEmpty
+    inputProps={{
+      'aria-label': 'Infant',
+      style: { padding: '4px', fontSize: '12px' }, // Smaller font size for input
+    }}
+    sx={{
+      fontSize: '12px', // Font size for the Select component
+      color: '#525371',
+      backgroundColor: '#d7e7f4',
+      padding: '2px 8px',
+      borderRadius: '4px',
+      '&:before': { borderBottom: 'none' },
+      '&:after': { borderBottom: 'none' },
+      '& .MuiSelect-select': {
+        color: '#525371', // Text color for the selected item
+      },
+      '& .MuiSelect-select:focus': {
+        backgroundColor: '#d7e7f4',
+      },
+    }}
+  >
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={0}>
+      0 Infant
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={1}>
+      1 Infant
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={2}>
+      2 Infants
+    </MenuItem>
+  </Select>
+</FormControl>
               </div>
 
               {/* Economy */}
               <div className="lg:mt-5 mt-3">
-                <FormControl className="w-full  " variant="standard" >
+                {/* <FormControl className="w-full  " variant="standard" >
                   <Select
                     value={infant}
                     onChange={(e) => setInfant(e.target.value)}
@@ -383,7 +521,53 @@ const FlightBookingForm = () => {
                     <MenuItem value={2}>First Class</MenuItem>
                     <MenuItem value={2}>Premium First Class</MenuItem>
                   </Select>
-                </FormControl>
+                </FormControl> */}
+                <FormControl className="w-full" variant="standard">
+  <Select
+    value={infant}
+    onChange={(e) => setInfant(e.target.value)}
+    displayEmpty
+    inputProps={{
+      'aria-label': 'Infant',
+      style: { padding: '4px', fontSize: '12px' }, // Smaller font size for input
+    }}
+    sx={{
+      fontSize: '12px', // Font size for the Select component
+      color: '#525371', // Text color for the Select component
+      backgroundColor: '#d7e7f4',
+      padding: '2px 8px',
+      borderRadius: '4px',
+      '& .MuiSelect-select': {
+        color: '#525371', // Text color for the selected item
+      },
+      '& .MuiSelect-select:focus': {
+        backgroundColor: '#d7e7f4',
+      },
+      '& .MuiSelect-icon': {
+        color: '#525371', // Color for the dropdown icon
+      },
+    }}
+  >
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={0}>
+      Economy
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={1}>
+      Premium Economy
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={2}>
+      Business
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={3}>
+      Premium Business
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={4}>
+      First Class
+    </MenuItem>
+    <MenuItem sx={{ fontSize: '12px', color: '#525371' }} value={5}>
+      Premium First Class
+    </MenuItem>
+  </Select>
+</FormControl>
               </div>
 
               {/*Search Button  */}
