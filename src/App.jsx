@@ -52,7 +52,7 @@ const FlightBookingForm = () => {
     setTabValue(newValue);
   };
 
-  
+
 
   return (
     <div
@@ -70,7 +70,7 @@ const FlightBookingForm = () => {
           <div className="flex justify-between px-2 py-1">
             <Button
               size="small"
-              sx={{ borderRadius: '1.5rem' }} 
+              sx={{ borderRadius: '1.5rem' }}
               className={`w-full m-10 py-2 rounded-3xl ${tabValue === 0 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 0)}
               {...a11yProps(0)}
@@ -82,7 +82,7 @@ const FlightBookingForm = () => {
             </Button>
             <Button
               size="small"
-              sx={{ borderRadius: '1.5rem' }} 
+              sx={{ borderRadius: '1.5rem' }}
               className={`w-full rounded-3xl m-10 py-2 ${tabValue === 1 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 1)}
               {...a11yProps(1)}
@@ -94,7 +94,7 @@ const FlightBookingForm = () => {
             </Button>
             <Button
               size="small"
-              sx={{ borderRadius: '1.5rem' }} 
+              sx={{ borderRadius: '1.5rem' }}
               className={`w-full rounded-3xl m-10 py-2 ${tabValue === 2 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 2)}
               {...a11yProps(2)}
@@ -106,7 +106,7 @@ const FlightBookingForm = () => {
             </Button>
             <Button
               size="small"
-              sx={{ borderRadius: '1.5rem' }} 
+              sx={{ borderRadius: '1.5rem' }}
               className={`w-full rounded-3xl m-10 py-2 ${tabValue === 3 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
               onClick={() => handleTabChange(null, 3)}
               {...a11yProps(3)}
@@ -167,158 +167,205 @@ const FlightBookingForm = () => {
               <div className="md:flex mt-2 justify-between">
                 <div className=" flex-1">
                   <div className="text-center">
-                  <p>From</p>
-                  <h1 className="text-[#32d095] text-lg md:text-4xl">DXB</h1>
-                  
-                  {/* input */}
-                  <div className="flex items-center mt-7 justify-center">
-                   
-                    <div className="p-1 bg-[#32d095]">
-                    <MdLocationOn className="text-white  text-2xl" />
-                    </div>
-                    
-                    <div>
-                      <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
-                    </div>
-                  </div>
-                  {/* date */}
-                  <div className="flex mt-2 items-center justify-center">
-                  
-                    <div className="p-1 bg-[#32d095]">
-                    <SlCalender className="text-white  text-2xl" />
-                    </div>
-                    
-                    <div>
-                      {/* <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" /> */}
-                      <DatePicker selected={startDate} className="bg-[#d7e7f4] p-1  border-none outline-none" onChange={(date) => setStartDate(date)} />
+                    <p>From</p>
+                    <h1 className="text-[#32d095] text-lg md:text-4xl">DXB</h1>
 
+                    {/* input */}
+                    <div className="flex items-center mt-7 justify-center">
+
+                      <div className="p-1 bg-[#32d095]">
+                        <MdLocationOn className="text-white  text-2xl" />
+                      </div>
+
+                      <div>
+                        <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
+                      </div>
                     </div>
-                  </div>
+                    {/* date */}
+                    <div className="flex mt-2 items-center justify-center">
+
+                      <div className="p-1 bg-[#32d095]">
+                        <SlCalender className="text-white  text-2xl" />
+                      </div>
+
+                      <div>
+                        {/* <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" /> */}
+                        <DatePicker selected={startDate} className="bg-[#d7e7f4] p-1  border-none outline-none" onChange={(date) => setStartDate(date)} />
+
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Plane */}
                 <div className="hidden mt-10 md:block ">
-                <ImAirplane className="text-5xl text-[#32d095]" />
-                <BiSolidPlaneAlt className="text-6xl text-gray-500  outline-green-500" />
+                  <ImAirplane className="text-5xl text-[#32d095]" />
+                  <BiSolidPlaneAlt className="text-6xl text-gray-500  outline-green-500" />
                 </div>
                 <div className=" flex-1">
-                <div className="text-center">
-                  <p>To</p>
-                  <h1 className="text-[#32d095] text-lg md:text-4xl">DXC</h1>
-                     {/* input */}
-                     <div className="flex items-center mt-7 justify-center">
-                   
-                   <div className="p-1 bg-[#32d095]">
-                   <MdLocationOn className="text-white  text-2xl" />
-                   </div>
-                   
-                   <div>
-                     <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
-                   </div>
-                 </div>
-                 {/* date */}
-                 <div className="flex mt-2 items-center justify-center">
-                 
-                   <div className="p-1 bg-[#32d095]">
-                   <SlCalender className="text-white  text-2xl" />
-                   </div>
-                   
-                   <div>
-                     {/* <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" /> */}
-                     <DatePicker selected={endDate} className="bg-[#d7e7f4] p-1  border-none outline-none" onChange={(date) => setEndDate(date)} />
+                  <div className="text-center">
+                    <p>To</p>
+                    <h1 className="text-[#32d095] text-lg md:text-4xl">DXC</h1>
+                    {/* input */}
+                    <div className="flex items-center mt-7 justify-center">
 
-                   </div>
-                 </div>
+                      <div className="p-1 bg-[#32d095]">
+                        <MdLocationOn className="text-white  text-2xl" />
+                      </div>
+
+                      <div>
+                        <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" />
+                      </div>
+                    </div>
+                    {/* date */}
+                    <div className="flex mt-2 items-center justify-center">
+
+                      <div className="p-1 bg-[#32d095]">
+                        <SlCalender className="text-white  text-2xl" />
+                      </div>
+
+                      <div>
+                        {/* <input className="bg-[#d7e7f4] p-1  border-none outline-none" type="text" placeholder="Dubai Intl Airport ( DXB )" /> */}
+                        <DatePicker selected={endDate} className="bg-[#d7e7f4] p-1  border-none outline-none" onChange={(date) => setEndDate(date)} />
+
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <Divider orientation="vertical" flexItem sx={{ height: 'auto', mx: 0, borderColor: 'grey.400', borderRadius: "20px" }} />
-            <div className="lg:w-[30%] w-full p-4 rounded-lg bg-white">
+            <div className="lg:w-[30%] w-full p-4 rounded-lg bg-white ">
               {/* select */}
-              <ButtonGroup aria-label="number of adults, children, and infants" className="gap-2">
-          <FormControl variant="standard" className="m-2">
-            <Select
-              value={adult}
-              onChange={(e) => setAdult(e.target.value)}
-              displayEmpty
-              inputProps={{
-                'aria-label': 'Adult',
-                style: { padding: '4px', fontSize: '14px' },
-              }}
-              sx={{
-                fontSize: '14px',
-                backgroundColor: '#d7e7f4',
-                padding: '2px 8px',
-                borderRadius: '4px',
-                '&:before': { borderBottom: 'none' },
-                '&:after': { borderBottom: 'none' },
-                '& .MuiSelect-select:focus': {
-                  backgroundColor: '#d7e7f4',
-                },
-              }}
-            >
-              <MenuItem value={1}>1 Adult</MenuItem>
-              <MenuItem value={2}>2 Adults</MenuItem>
-              <MenuItem value={3}>3 Adults</MenuItem>
-              <MenuItem value={4}>4 Adults</MenuItem>
-            </Select>
-          </FormControl>
-          <FormControl variant="standard" className="m-2">
-            <Select
-              value={child}
-              onChange={(e) => setChild(e.target.value)}
-              displayEmpty
-              inputProps={{
-                'aria-label': 'Child',
-                style: { padding: '4px', fontSize: '14px' },
-              }}
-              sx={{
-                fontSize: '14px',
-                backgroundColor: '#d7e7f4',
-                padding: '2px 8px',
-                borderRadius: '4px',
-                '&:before': { borderBottom: 'none' },
-                '&:after': { borderBottom: 'none' },
-                '& .MuiSelect-select:focus': {
-                  backgroundColor: '#d7e7f4',
-                },
-              }}
-            >
-              <MenuItem value={0}>0 Child</MenuItem>
-              <MenuItem value={1}>1 Child</MenuItem>
-              <MenuItem value={2}>2 Children</MenuItem>
-            </Select>
-          </FormControl>
-          <FormControl variant="standard" className="m-2">
-            <Select
-              value={infant}
-              onChange={(e) => setInfant(e.target.value)}
-              displayEmpty
-              inputProps={{
-                'aria-label': 'Infant',
-                style: { padding: '4px', fontSize: '14px' },
-              }}
-              sx={{
-                fontSize: '14px',
-                backgroundColor: '#d7e7f4',
-                padding: '2px 8px',
-                borderRadius: '4px',
-                '&:before': { borderBottom: 'none' },
-                '&:after': { borderBottom: 'none' },
-                '& .MuiSelect-select:focus': {
-                  backgroundColor: '#d7e7f4',
-                },
-              }}
-            >
-              <MenuItem value={0}>0 Infant</MenuItem>
-              <MenuItem value={1}>1 Infant</MenuItem>
-              <MenuItem value={2}>2 Infants</MenuItem>
-            </Select>
-          </FormControl>
-        </ButtonGroup>
+              {/* <ButtonGroup aria-label="number of adults, children, and infants" className="gap-2">
+                
+              </ButtonGroup> */}
+              <div className="flex justify-between">
+              <FormControl variant="standard" className="m-2">
+                  <Select
+                    value={adult}
+                    onChange={(e) => setAdult(e.target.value)}
+                    displayEmpty
+                    inputProps={{
+                      'aria-label': 'Adult',
+                      style: { padding: '4px', fontSize: '14px' },
+                    }}
+                    sx={{
+                      fontSize: '14px',
+                      backgroundColor: '#d7e7f4',
+                      padding: '2px 8px',
+                      borderRadius: '4px',
+                      '&:before': { borderBottom: 'none' },
+                      '&:after': { borderBottom: 'none' },
+                      '& .MuiSelect-select:focus': {
+                        backgroundColor: '#d7e7f4',
+                      },
+                    }}
+                  >
+                    <MenuItem value={1}>1 Adult</MenuItem>
+                    <MenuItem value={2}>2 Adults</MenuItem>
+                    <MenuItem value={3}>3 Adults</MenuItem>
+                    <MenuItem value={4}>4 Adults</MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl variant="standard" className="m-2">
+                  <Select
+                    value={child}
+                    onChange={(e) => setChild(e.target.value)}
+                    displayEmpty
+                    inputProps={{
+                      'aria-label': 'Child',
+                      style: { padding: '4px', fontSize: '14px' },
+                    }}
+                    sx={{
+                      fontSize: '14px',
+                      backgroundColor: '#d7e7f4',
+                      padding: '2px 8px',
+                      borderRadius: '4px',
+                      '&:before': { borderBottom: 'none' },
+                      '&:after': { borderBottom: 'none' },
+                      '& .MuiSelect-select:focus': {
+                        backgroundColor: '#d7e7f4',
+                      },
+                    }}
+                  >
+                    <MenuItem value={0}>0 Child</MenuItem>
+                    <MenuItem value={1}>1 Child</MenuItem>
+                    <MenuItem value={2}>2 Children</MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl variant="standard" className="m-2">
+                  <Select
+                    value={infant}
+                    onChange={(e) => setInfant(e.target.value)}
+                    displayEmpty
+                    inputProps={{
+                      'aria-label': 'Infant',
+                      style: { padding: '4px', fontSize: '14px' },
+                    }}
+                    sx={{
+                      fontSize: '14px',
+                      backgroundColor: '#d7e7f4',
+                      padding: '2px 8px',
+                      borderRadius: '4px',
+                      '&:before': { borderBottom: 'none' },
+                      '&:after': { borderBottom: 'none' },
+                      '& .MuiSelect-select:focus': {
+                        backgroundColor: '#d7e7f4',
+                      },
+                    }}
+                  >
+                    <MenuItem value={0}>0 Infant</MenuItem>
+                    <MenuItem value={1}>1 Infant</MenuItem>
+                    <MenuItem value={2}>2 Infants</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+
+              {/* Economy */}
+              <div className="lg:mt-5 mt-3">
+                <FormControl className="w-full  " variant="standard" >
+                  <Select
+                    value={infant}
+                    onChange={(e) => setInfant(e.target.value)}
+                    displayEmpty
+                    inputProps={{
+                      'aria-label': 'Infant',
+                      style: { padding: '4px', fontSize: '14px' },
+                    }}
+                    sx={{
+                      fontSize: '14px',
+                      backgroundColor: '#d7e7f4',
+                      padding: '2px 8px',
+                      borderRadius: '4px',
+                      '&:before': { borderBottom: 'none' },
+                      '&:after': { borderBottom: 'none' },
+                      '& .MuiSelect-select:focus': {
+                        backgroundColor: '#d7e7f4',
+                      },
+                    }}
+                  >
+                    <MenuItem value={0}>Economy</MenuItem>
+                    <MenuItem value={1}>Premium Economy</MenuItem>
+                    <MenuItem value={2}>Business</MenuItem>
+                    <MenuItem value={2}>Premiun Business</MenuItem>
+                    <MenuItem value={2}>First Class</MenuItem>
+                    <MenuItem value={2}>Premium First Class</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+
+              {/*Search Button  */}
+              <div className="lg:mt-24 mt-16">
+              <Button
+              size="small"
+            
+              className={`w-full mb-2 py-2  ${tabValue === 0 ? "!bg-[#32d095] border border-blue-500 !text-white" : "!text-[#32d095]"}`}
+              onClick={() => handleTabChange(null, 0)}
+              {...a11yProps(0)}
+            >Search For Flight</Button>
+              </div>
             </div>
           </div>
         </CustomTabPanel>
